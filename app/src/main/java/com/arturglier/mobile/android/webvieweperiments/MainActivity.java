@@ -1,17 +1,28 @@
 package com.arturglier.mobile.android.webvieweperiments;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    private WebView mWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mWebView = (WebView) findViewById(R.id.webview);
+
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setBuiltInZoomControls(false);
+        mWebView.getSettings().setDisplayZoomControls(false);
+
+        mWebView.loadUrl("file:///android_asset/www/index.html");
     }
 
 
